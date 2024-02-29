@@ -1,0 +1,57 @@
+import customtkinter as ctkn
+
+ctkn.set_appearance_mode('dark')
+# tema dark
+
+ctkn.set_default_color_theme('green')
+# Padrão de cores e fonte
+
+janela = ctkn.CTk()
+janela.geometry('550x400')
+# Criando janela
+
+janela.iconbitmap('49_85223(2).ico')
+
+janela.title('Combustivel APP 2024')
+# nome do aplicativo
+
+# Funções
+
+def calcular():
+    d = int(distancia.get())
+    c = int(consumo.get())
+    p = float(preco.get())
+
+    valor = (d/c)*p
+    
+    resultado.configure(text=f'0 gasto total da viagem foi R${valor:.2f}')
+
+#_________________
+
+
+
+texto = ctkn.CTkLabel(janela, text='APP calcular consumo em Viagem', text_color='green', font=('verdana',20,'bold'))
+texto.pack(padx=10, pady=10)
+# criando texto e seu tamanho
+
+distancia = ctkn.CTkEntry(janela, placeholder_text='Digite a distância da viagem', width=300, height=40, fg_color='white', text_color='black', placeholder_text_color='gray')
+distancia.pack(padx=10, pady=10)
+# Input distancia
+ 
+consumo = ctkn.CTkEntry(janela, placeholder_text='Digite o consumo da viagem', width=300, height=40, fg_color='white', text_color='black', placeholder_text_color='gray')
+consumo.pack(padx=10, pady=10)
+# Input consumo
+
+preco = ctkn.CTkEntry(janela, placeholder_text='Digite o preço da viagem', width=300, height=40, fg_color='white', text_color='black', placeholder_text_color='gray')
+preco.pack(padx=10, pady=10)
+# Input preço
+
+botao = ctkn.CTkButton(janela, text='Calcular a viagem', font=('verdana',20,'bold'),fg_color='darkgreen', hover_color='darkred', height=50, command=calcular)
+botao.pack(padx=10, pady=10)
+# Button
+
+resultado = ctkn.CTkLabel(janela, text='', text_color='yellow',font=('verdana',18,'bold'))
+resultado.pack(padx=10,pady=10)
+#Tela console saida
+
+janela.mainloop()
